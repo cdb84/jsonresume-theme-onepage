@@ -17,7 +17,7 @@
       background: #EEEEEE;
       font: 13px "Times New Roman", Times, sans-serif;
       line-height: 1.4;
-      margin: 40px 0;
+      /*margin: 40px 0;*/
     }
 
     em {
@@ -43,7 +43,7 @@
     #resume {
       margin: 0 auto;
       max-width: 600px;
-      padding: 80px 100px;
+      padding: 25px 100px;
       background: #fff;
       border: 1px solid #ccc;
       box-shadow: 2px 2px 4px #aaa;
@@ -172,7 +172,7 @@
       #resume {
         margin: 0 auto;
         max-width: 600px;
-        padding: 0px 0px;
+        padding: 0cm 0cm;
         border: 0px;
         background: #fff;
         box-shadow: none;
@@ -281,6 +281,44 @@
           {{/if}}
           {{#unless @last}}<div class='separator'></div>{{/unless}}
         </div>
+        {{/each}}
+      </div>
+    </div>
+    <div class='sectionLine'></div>
+    {{/if}}
+
+    {{#if resume.education.length}}
+    <div id='education' class="sectionBlock">
+      <div class='sectionName'>
+        <span>EDUCATION</span>
+      </div>
+      <div class='sectionContent'>
+        {{#each resume.education}}
+        <div class='educationBlock'>
+          <span class='title'>
+            {{#if institution}}{{institution}}{{/if}}
+          </span>
+          {{#if startDate}}
+          <span class='date'>
+            {{#if startDate}}{{startDate}}{{/if}} &mdash; {{#if endDate}}{{endDate}}{{else}}Present{{/if}}
+          </span>
+          {{/if}}
+          <div class=''>
+            {{#if studyType}}{{studyType}} {{/if}} - {{#if area}}{{area}}{{/if}}{{#if gpa}}, GPA: {{gpa}}{{/if}}
+          </div>
+          {{#if courses.length}}
+          <div id='coursesBlock'>
+            {{#each courses}}
+            <ul class='coursesList'>
+              {{#each .}}
+              <li class='course'>{{.}}</li>
+              {{/each}}
+            </ul>
+            {{/each}}
+          </div>
+          {{/if}}
+        </div>
+        {{#unless @last}}<div class='separator'></div>{{/unless}}
         {{/each}}
       </div>
     </div>
@@ -409,44 +447,6 @@
             <li>{{.}}</li>
             {{/each}}
           </ul>
-          {{/if}}
-        </div>
-        {{#unless @last}}<div class='separator'></div>{{/unless}}
-        {{/each}}
-      </div>
-    </div>
-    <div class='sectionLine'></div>
-    {{/if}}
-
-    {{#if resume.education.length}}
-    <div id='education' class="sectionBlock">
-      <div class='sectionName'>
-        <span>EDUCATION</span>
-      </div>
-      <div class='sectionContent'>
-        {{#each resume.education}}
-        <div class='educationBlock'>
-          <span class='title'>
-            {{#if institution}}{{institution}}{{/if}}
-          </span>
-          {{#if startDate}}
-          <span class='date'>
-            {{#if startDate}}{{startDate}}{{/if}} &mdash; {{#if endDate}}{{endDate}}{{else}}Present{{/if}}
-          </span>
-          {{/if}}
-          <div class=''>
-            {{#if studyType}}{{studyType}} {{/if}} - {{#if area}}{{area}}{{/if}}{{#if gpa}}, GPA: {{gpa}}{{/if}}
-          </div>
-          {{#if courses.length}}
-          <div id='coursesBlock'>
-            {{#each courses}}
-            <ul class='coursesList'>
-              {{#each .}}
-              <li class='course'>{{.}}</li>
-              {{/each}}
-            </ul>
-            {{/each}}
-          </div>
           {{/if}}
         </div>
         {{#unless @last}}<div class='separator'></div>{{/unless}}
